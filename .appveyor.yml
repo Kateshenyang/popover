@@ -10,6 +10,7 @@ cache: node_modules
 
 install:
   - npm install
+  - npm install wait-on
 
 build: off
 
@@ -19,6 +20,8 @@ build_script:
 
 test_script:
   - chmod +x node_modules/.bin/jest
+  - npm start &
+  - npx wait-on http://localhost:9000
   - npm run lint && npm run test -- --passWithNoTests
 
 deploy_script:
