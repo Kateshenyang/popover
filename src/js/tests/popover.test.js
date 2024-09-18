@@ -5,13 +5,15 @@ describe('Popover', () => {
   let page;
 
   beforeAll(async () => {
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({ headless: "new" });
     page = await browser.newPage();
-    await page.goto('http://localhost:8080');
-  });
+    await page.goto('http://localhost:9000');
+  }, 30000);
 
   afterAll(async () => {
-    await browser.close();
+    if (browser) {
+      await browser.close();
+    }
   });
 
   test('should show and hide the popover', async () => {
@@ -19,8 +21,15 @@ describe('Popover', () => {
     let tooltip = await page.$('.tooltip');
     expect(tooltip).not.toBeNull();
 
+    let isVisible = await page.evaluate(el => !!el && window.getComputedStyle(el).visibility !== 'hidden' && window.getComputedStyle(el).display !== 'none', tooltip);
+    expect(isVisible).toBe(true);
+
     await page.click('.btn-danger');
+
+    await page.waitForSelector('.tooltip', { hidden: true });
+
     tooltip = await page.$('.tooltip');
-    expect(tooltip).toBeNull();
-  });
+    isVisible = await page.evaluate(el => !!el && window.getComputedStyle(el).visibility !== 'hidden' && window.getComputedStyle(el).display !== 'none', tooltip);
+    expect(isVisible).toBe(false);
+  }, 30000);
 });

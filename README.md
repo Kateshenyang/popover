@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/6v3r903bet2aqxhd?svg=true)](https://ci.appveyor.com/project/Kateshenyang/popover)
