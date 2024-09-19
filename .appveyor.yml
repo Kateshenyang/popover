@@ -11,7 +11,8 @@ cache: node_modules
 install:
   - npm install
   - npm install wait-on
-  - npx puppeteer install # Установка Puppeteer браузера
+  - npm install puppeteer
+  - npx puppeteer install
 
 build: off
 
