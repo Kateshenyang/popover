@@ -20,8 +20,8 @@ build_script:
 
 test_script:
   - chmod +x node_modules/.bin/jest
-  - npm start &
-  - npx wait-on http://localhost:9000
+  - npm start & # Запуск сервера в фоновом режиме
+  - npx wait-on http://localhost:9000 # Ожидание запуска сервера
   - npm run lint && npm run test -- --passWithNoTests
 
 deploy_script:
