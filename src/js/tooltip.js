@@ -22,7 +22,6 @@ export default class Tooltip {
   
     positionTooltip() {
       const rect = this.element.getBoundingClientRect();
-      // Позиционируем tooltip выше кнопки на 5 пикселей и по центру горизонтально
       const tooltipWidth = this.tooltipElement.offsetWidth;
       const elementWidth = rect.width;
       const leftOffset = rect.left + window.scrollX + (elementWidth / 2) - (tooltipWidth / 2);
@@ -34,7 +33,7 @@ export default class Tooltip {
     toggle() {
       if (this.tooltipElement.style.display === 'none') {
         this.tooltipElement.style.display = 'block';
-        this.positionTooltip(); // Перепозиционируем при показе
+        this.positionTooltip();
       } else {
         this.tooltipElement.style.display = 'none';
       }
