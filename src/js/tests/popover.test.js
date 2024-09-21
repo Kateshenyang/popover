@@ -6,8 +6,9 @@ describe('Popover', () => {
 
   beforeAll(async () => {
     browser = await puppeteer.launch({ 
-      headless: "new",
-      executablePath: await puppeteer.executablePath() // Убедитесь, что Puppeteer использует правильный путь к браузеру
+      headless: true,
+      executablePath: puppeteer.executablePath(),
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     page = await browser.newPage();
     await page.goto('http://localhost:9000');
