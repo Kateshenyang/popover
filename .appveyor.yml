@@ -11,7 +11,8 @@ cache: node_modules
 install:
   - npm install
   - npm install wait-on
-  - npm install puppeteer # Установка Puppeteer через npm
+  - npm install puppeteer@latest # Установка последней версии Puppeteer
+  - npx puppeteer install # Загрузка браузера для Puppeteer
 
 build: off
 
