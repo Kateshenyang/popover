@@ -12,7 +12,6 @@ install:
   - npm install
   - npm install wait-on
   - npm install puppeteer # Установка Puppeteer через npm
-  - npx puppeteer install # Установка Puppeteer браузера
 
 build: off
 

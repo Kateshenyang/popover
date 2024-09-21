@@ -5,10 +5,9 @@ describe('Popover', () => {
   let page;
 
   beforeAll(async () => {
-    browser = await puppeteer.launch({ 
+    browser = await puppeteer.launch({
       headless: true,
-      executablePath: puppeteer.executablePath(),
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox'] // Добавим эти аргументы для предотвращения проблем с правами доступа
     });
     page = await browser.newPage();
     await page.goto('http://localhost:9000');
